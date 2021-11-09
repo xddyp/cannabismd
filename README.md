@@ -1,6 +1,6 @@
 # CannabisMD(Demo)
 
-CannabimsMD is a web application for patients to submit intake forms and doctor to manage medical records built with React and Firestore as database.
+CannabisMD is a web application for patients to submit intake forms and doctors to manage medical records built with React and Firestore as database.
 
 # Demo
 
