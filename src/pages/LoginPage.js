@@ -2,13 +2,22 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import LoginForm from '../components/login/LoginForm';
 import { useAuth } from '../store/auth-context';
-import { Card, Typography, Button } from '@mui/material';
+import {
+	Card,
+	Typography,
+	Button,
+	Alert,
+	AlertTitle,
+	Box,
+	Collapse,
+} from '@mui/material';
 
 import ErrorPage from './ErrorPage';
 
 const LoginPage = () => {
 	const history = useHistory();
 	const [error, setError] = useState();
+	const [open, setOpen] = useState(true);
 	const { login, currentUser, signup } = useAuth();
 	const [newUser, setNewUser] = useState(false);
 
@@ -54,6 +63,23 @@ const LoginPage = () => {
 					</>
 				)}
 			</Card>
+			<Box mt={2} sx={{ width: 400, mx: 'auto' }}>
+				<Collapse in={open}>
+					<Alert
+						severity='info'
+						// variant='filled'
+						onClose={() => {
+							setOpen(false);
+						}}
+					>
+						<AlertTitle>Testing Account</AlertTitle>
+						<ul>
+							<li>Email: test@gmail.com</li>
+							<li>Password: 123456</li>
+						</ul>
+					</Alert>
+				</Collapse>
+			</Box>
 		</>
 	);
 };
